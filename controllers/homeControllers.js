@@ -202,12 +202,14 @@ const getadListDetailPage = async(req, res) => {
 
     //MORE ADS FROM OWNER PAGE
     const ownerId = productData.ownerId
+    const ownerData = await User.findOne({_id: ownerId})
+    const ownerImg = ownerData.image
     const ownerDb = await Post.find({ownerId: ownerId}).limit(5).sort({date: -1})
     
     // console.log( ownerDb)
     // const body = productData.description
     // console.log(productData)
-    res.render('ads-details', { currentUser, username, product, productImage, category, phone, firstName, lastName,  price, title, date, country, body, ownerDb })
+    res.render('ads-details', { currentUser, ownerImg, username, product, productImage, category, phone, firstName, lastName,  price, title, date, country, body, ownerDb })
 }
 
 const getaboutPage = async (req, res) => {
