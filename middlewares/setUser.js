@@ -16,7 +16,7 @@ const setUser = async(req, res, next)=>{
     // console.log(req.user)
         next()
     } else{
-        res.redirect('/register')
+        res.redirect('/login')
     }
     }
 
