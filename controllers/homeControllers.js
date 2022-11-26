@@ -19,7 +19,7 @@ const getHomePage = async (req, res) => {
 
 
     const countryData = await Post.findOne({country: 'Nigeria'})
-    const coun = countryData.countryDataImage
+    // const coun = countryData.image
     const totalPost = await Post.count({country: 'Nigeria'})
     const countryDataImage = countryData.image
 
@@ -44,7 +44,7 @@ const getHomePage = async (req, res) => {
     // console.log(totalPost)
     // const image = req.user.image
     // console.log(dataBase)
-    res.render('index-3', { coun,countryData2,countryData4,countryData3,countryData6,countryData5, username, currentUser, dataBase,totalAds,totalMembers, totalPost,totalPosts,totalPostss, totalPostsss,totalPostssss,totalPostsssss })
+    res.render('index-3', { countryData2,countryData4,countryData3,countryData6,countryData5, username, currentUser, dataBase,totalAds,totalMembers, totalPost,totalPosts,totalPostss, totalPostsss,totalPostssss,totalPostsssss })
 }
 const getRegisterPage = (req, res) => {
     res.render('register')
