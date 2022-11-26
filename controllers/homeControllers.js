@@ -338,7 +338,7 @@ const getUserDetails = (req, res) => {
         password: req.body.password1
     })
 
-    res.render('login')
+    res.redirect("/login")
 }
 
 
