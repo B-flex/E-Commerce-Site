@@ -9,7 +9,7 @@ const nodemailer = require('nodemailer')
 const nodemailerMailGun = require('nodemailer-mailgun-transport')
 require('dotenv').config()
 
-mongoose.connect('MONGODB_URL=mongodb+srv://beloved2003:enobong2003@cluster0.nzqhfq2.mongodb.net/e-commerce')
+mongoose.connect('mongodb+srv://beloved2003:enobong2003@cluster0.nzqhfq2.mongodb.net/e-commerce')
 const app = express()
 const exphbs = require('express-handlebars')
 
