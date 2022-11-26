@@ -21,7 +21,7 @@ const getHomePage = async (req, res) => {
     const countryData = await Post.findOne({country: 'Nigeria'})
     // const coun = countryData.image
     const totalPost = await Post.count({country: 'Nigeria'})
-    const countryDataImage = countryData.image
+    // const countryDataImage = countryData.image
 
     const countryData2 = await Post.findOne({country: 'USA'})
     const totalPosts = await Post.count({country: 'USA'})
