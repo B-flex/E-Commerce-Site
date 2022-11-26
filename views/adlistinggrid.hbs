@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>NexusPlus - Classified Ads and Listing</title>
+
+{{> cssLinks}}
+</head>
+<body>
+
+<header id="header-wrap">
+
+<div class="top-bar">
+<div class="container">
+<div class="row">
+<div class="col-lg-7 col-md-5 col-xs-12">
+
+<ul class="list-inline">
+{{!-- <li><i class="lni-phone"></i> +0123 456 789</li> --}}
+<li><i class="lni-envelope"></i> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="12616762627d606652757f737b7e3c717d7f">[email&#160;protected]</a></li>
+</ul>
+
+</div>
+<div class="col-lg-5 col-md-7 col-xs-12">
+<div class="roof-social float-right">
+<a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
+<a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
+<a class="instagram" href="#"><i class="lni-instagram-filled"></i></a>
+<a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
+<a class="google" href="#"><i class="lni-google-plus"></i></a>
+</div>
+
+{{> nav}}
+
+{{> header}}
+
+
+</header>
+
+
+<div class="page-header" style="background: url(/img/banner1.jpg);">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="breadcrumb-wrapper">
+<h2 class="product-title">Listings</h2>
+<ol class="breadcrumb">
+<li><a href="#">Home /</a></li>
+<li class="current">Listings</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="main-container section-padding">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-12 col-xs-12 page-sidebar">
+<aside>
+
+
+<div class="widget categories">
+<h4 class="widget-title">All Categories</h4>
+<ul class="categories-list">
+<li>
+<a href="/adgrid/hotel & travels">
+<i class="lni-dinner"></i>
+Hotel & Travels <span class="category-counter">({{hotel}})</span>
+</a>
+</li>
+<li>
+<a href="/adgrid/services">
+<i class="lni-control-panel"></i>
+Services <span class="category-counter">({{services}})</span>
+</a>
+</li>
+<a href="/adgrid/mobiles" style="color: gray;  margin-left:4px">
+<i class="lni-home"></i>
+Mobiles <span class="category-counter">({{mobiles}})</span>
+</a>
+</li><pre>
+</pre>
+<a href="/adgrid/training" style="color: gray;  margin-left:4px">
+<i class="lni-pencil"></i>
+Training <span class="category-counter">({{training}})</span>
+</a>
+</li><pre>
+</pre>
+<a href="/adgrid/vehicles" style="color: gray;  margin-left:4px">
+<i class="lni-display"></i>
+Vehicles <span class="category-counter">({{vehicles}})</span>
+</a>
+</li><pre>
+</pre>
+<li>
+<a href="/adgrid/pets">
+<i class="lni-github"></i>
+Pets <span class="category-counter">({{pets}})</span>
+</a>
+</li>
+<li>
+<a href="/adgrid/foods">
+<i class="lni-coffee-cup"></i>
+Foods <span class="category-counter">({{foods}})</span>
+</a>
+</li>
+<li>
+<a href="/adgrid/real Estate">
+<i class="lni-home"></i>
+Real Estate <span class="category-counter">({{realEstate}})</span>
+</a>
+</li>
+<li>
+<a href="/adgrid/clothes & accessories">
+<i class="lni-pencil"></i>
+Clothes and Accessories <span class="category-counter">({{clothes}})</span>
+</a>
+</li>
+<li>
+<a href="/adgrid/electronics">
+<i class="lni-display"></i>
+Electronics <span class="category-counter">({{electronics}})</span>
+</a>
+</li>
+<a href="/adgrid/other" style="color: gray; margin-left:4px">
+<i class="lni-control-panel"></i>
+Other <span class="category-counter">({{other}})</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="widget">
+<h4 class="widget-title">Advertisement</h4>
+<div class="add-box">
+<img class="img-fluid" src="/img/img1.jpg" alt="">
+</div>
+</div>
+</aside>
+</div>
+<div class="col-lg-9 col-md-12 col-xs-12 page-content">
+
+<div class="product-filter">
+<div class="short-name">
+  {{#if allProducts}}
+<span>Showing (1 - {{count}} products of {{count}} products)</span>
+{{else}}
+<span>Showing (1 - 4 products of {{count}} products)</span>
+{{/if}}
+</div>
+{{!-- <div class="Show-item">
+ <span>Show Items</span>
+<form class="woocommerce-ordering" method="post">
+<label>
+<select name="order" class="orderby">
+<option selected="selected" value="menu-order">49 items</option>
+<option value="popularity">popularity</option>
+<option value="popularity">Average ration</option>
+<option value="popularity">newness</option>
+<option value="popularity">price</option>
+</select>
+</label>
+</form>
+</div> --}}
+<ul class="nav nav-tabs">
+<li class="nav-item">
+<a class="nav-link active" data-toggle="tab" href="#grid-view"><i class="lni-grid"></i></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#list-view"><i class="lni-list"></i></a>
+</li>
+</ul>
+</div>
+
+
+<div class="adds-wrapper">
+<div class="tab-content">
+<div id="grid-view" class="tab-pane fade active show">
+<div class="row">
+    {{#each allProducts}}
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+<div class="featured-box">
+<figure>
+<div class="icon">
+<span class="bg-green"><i class="lni-heart"></i></span>
+<span><i class="lni-bookmark"></i></span>
+</div>
+<a href="#"><img class="img-fluid" src="{{image}}" alt="" style="width: 420px; height:320px;"></a>
+</figure>
+<div class="feature-content">
+<div class="product">
+<a href="#">{{categories}} > </a>
+<a href="#">{{adTitle}}</a>
+</div>
+<h4><a href="/ads-details/{{_id}}">{{adTitle}} ...</a></h4>
+<div class="meta-tag">
+<span>
+<a href="#"><i class="lni-user"></i>{{firstName}} {{lastName}} </a>
+</span>
+<span>
+<a href="#"><i class="lni-map-marker"></i> {{country}}, {{city}}</a>
+</span>
+{{!-- <span>
+<a href="#"><i class="lni-tag"></i> Apple</a>
+</span> --}}
+</div>
+{{!-- <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p> --}}
+<div class="listing-bottom">
+<h3 class="price float-left" style="padding-right: 190px;">N{{price}}</h3>
+<a href="/ads-details/{{_id}}" class="btn btn-common float-right">View Details</a>
+</div>
+</div>
+</div>
+</div>
+
+{{/each}}
+</div>
+
+
+
+{{#if category}}
+<div class="pagination-bar">
+<nav>
+<ul class="pagination justify-content-center">
+    {{#if previous}}
+<li class="page-item"><a class="page-link" href="/adgrid/{{category}}/?page={{previous}}">Previous</a></li>
+  {{/if}}
+
+    {{#each allPages}}
+<li class="page-item"><a class="page-link active" href="/adgrid/{{category}}?page={{pageNumber}}">{{pageNumber}}</a></li>
+{{/each}}
+
+{{#if next}}
+<li class="page-item"><a class="page-link" href="/adgrid/{{category}}/?page={{next}}">Next</a></li>
+{{/if}}
+</ul>
+</nav>
+</div>
+
+</div>
+</div>
+</div>
+{{/if}}
+
+{{#if allProducts}}
+<div class="pagination-bar" style="display: none;">
+<nav>
+<ul class="pagination justify-content-center">
+    {{#if previous}}
+<li class="page-item"><a class="page-link" href="/adgrid/?page={{previous}}">Previous</a></li>
+  {{/if}}
+
+    {{#each allPages}}
+<li class="page-item"><a class="page-link active" href="/adgrid/?page={{pageNumber}}">{{pageNumber}}</a></li>
+{{/each}}
+
+{{#if next}}
+<li class="page-item"><a class="page-link" href="/adgrid/?page={{next}}">Next</a></li>
+{{/if}}
+</ul>
+</nav>
+</div>
+
+</div>
+</div>
+</div>
+
+{{else}}
+
+
+<div class="pagination-bar">
+<nav>
+<ul class="pagination justify-content-center">
+    {{#if previous}}
+<li class="page-item"><a class="page-link" href="/adgrid/?page={{previous}}">Previous</a></li>
+  {{/if}}
+
+    {{#each allPages}}
+<li class="page-item"><a class="page-link active" href="/adgrid/?page={{pageNumber}}">{{pageNumber}}</a></li>
+{{/each}}
+
+{{#if next}}
+<li class="page-item"><a class="page-link" href="/adgrid/?page={{next}}">Next</a></li>
+{{/if}}
+</ul>
+</nav>
+</div>
+
+</div>
+</div>
+</div>
+
+{{/if}}
+</div>
+
+
+{{> footer}}
+
+
+<a href="#" class="back-to-top">
+<i class="lni-chevron-up"></i>
+</a>
+
+<div id="preloader">
+<div class="loader" id="loader-1"></div>
+</div>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/js/jquery-min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/color-switcher.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<script src="/js/waypoints.min.js"></script>
+<script src="/js/wow.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.slicknav.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/form-validator.min.js"></script>
+<script src="/js/contact-form-script.min.js"></script>
+<script src="/js/summernote.js"></script>
+</body>
+
+
+</html>

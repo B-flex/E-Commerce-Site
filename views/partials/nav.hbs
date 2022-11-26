@@ -1,0 +1,19 @@
+{{#if currentUser}}
+<div class="header-top-right float-right">
+<h3 class="header-top-button" style="cursor:auto"><i class="lni-lock"></i> Welcome, {{username}}</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{{else}}
+<div class="header-top-right float-right">
+<a href="/login" class="header-top-button"><i class="lni-lock"></i> Log In</a> |
+<a href="/register" class="header-top-button"><i class="lni-pencil"></i> Register</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+{{/if}}

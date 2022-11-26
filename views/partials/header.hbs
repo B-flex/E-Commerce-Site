@@ -1,0 +1,117 @@
+{{> nav}}
+<nav class="navbar navbar-expand-lg bg-white fixed-top scrolling-navbar">
+<div class="container">
+
+<div class="navbar-header">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+<span class="lni-menu"></span>
+<span class="lni-menu"></span>
+<span class="lni-menu"></span>
+</button>
+<a href="/" class="navbar-brand"><img src="/img/logo.png" alt=""></a>
+</div>
+<div class="collapse navbar-collapse" id="main-navbar">
+<ul class="navbar-nav mr-auto w-100 justify-content-center">
+<li class="nav-item dropdown active">
+<a class="nav-link" href="/">
+Home
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/category">
+Categories
+</a>
+</li>
+ <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Listings
+</a>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="/adgrid">Ad Grid</a>
+<a class="dropdown-item" href="/adlistinglist">Ad Listing</a>
+{{!-- <a class="dropdown-item" href="/ads-Listingdetails">Listing Detail</a> --}}
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Pages
+</a>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="/about">About Us</a>
+<a class="dropdown-item" href="/services">Services</a>
+{{!-- <a class="dropdown-item" href="/ads-details">Ads Details</a> --}}
+{{!-- <a class="dropdown-item" href="/post-ads">Ads Post</a> --}}
+{{!-- <a class="dropdown-item" href="/pricing">Packages</a> --}}
+<a class="dropdown-item" href="/testimonial">Testimonial</a>
+<a class="dropdown-item" href="/faq">FAQ</a>
+{{!-- <a class="dropdown-item" href="/404">404</a> --}}
+</div>
+{{!-- </li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Blog --}}
+{{!-- </a>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="/blog">Blog - Right Sidebar</a>
+<a class="dropdown-item" href="/blog-left-sidebar">Blog - Left Sidebar</a>
+<a class="dropdown-item" href="blog-grid-full-width"> Blog full width </a>
+<a class="dropdown-item" href="/single-post">Blog Details</a>
+</div> --}}
+{{!-- </li> --}}
+<li class="nav-item">
+<a class="nav-link" href="/contact">
+Contact
+</a>
+</li>
+</ul>
+
+{{> loggedNav}}
+
+<ul class="mobile-menu">
+<li>
+<a class="active" href="/">
+Home
+</a>
+</li>
+<li>
+<a href="/category">Categories</a>
+</li>
+<li>
+<a href="#">
+Listings
+</a>
+<ul class="dropdown">
+<li><a href="/adgrid">Ad Grid</a></li>
+<li><a href="/adlistinglist">Ad Listing</a></li>
+<li><a href="/ads-Listingdetails">Listing Detail</a></li>
+</ul>
+</li>
+<li>
+<a href="#">Pages</a>
+<ul class="dropdown">
+<li><a href="/about">About Us</a></li>
+<li><a href="/services">Services</a></li>
+<li><a href="/ads-details">Ads Details</a></li>
+<li><a href="/post-ads">Ads Post</a></li>
+<li><a href="/pricing">Packages</a></li>
+<li><a href="/testimonial">Testimonial</a></li>
+<li><a href="/faq">FAQ</a></li>
+<li><a href="/404">404</a></li>
+</ul>
+</li>
+<li>
+<a href="#">Blog</a>
+<ul class="dropdown">
+<li><a href="/blog">Blog - Right Sidebar</a></li>
+<li><a href="/blog-left-sidebar">Blog - Left Sidebar</a></li>
+<li><a href="/blog-grid-full-width"> Blog full width </a></li>
+<li><a href="/single-post">Blog Details</a></li>
+</ul>
+</li>
+<li>
+<a href="/contact">Contact Us</a>
+</li>
+</ul>
+
+</nav>

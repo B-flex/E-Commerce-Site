@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>NexusPlus - Classified Ads and Listing Template</title>
+
+{{> cssLinks}}
+</head>
+<body>
+
+<header id="header-wrap">
+
+<div class="top-bar">
+<div class="container">
+<div class="row">
+<div class="col-lg-7 col-md-5 col-xs-12">
+
+<ul class="list-inline">
+<li><i class="lni-phone"></i> +0123 456 789</li>
+<li><i class="lni-envelope"></i> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1d6e686d6d726f695d7a707c7471337e7270">[email&#160;protected]</a></li>
+</ul>
+
+</div>
+<div class="col-lg-5 col-md-7 col-xs-12">
+<div class="roof-social float-right">
+<a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
+<a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
+<a class="instagram" href="#"><i class="lni-instagram-filled"></i></a>
+<a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
+<a class="google" href="#"><i class="lni-google-plus"></i></a>
+</div>
+
+</header>
+{{> header}}
+
+
+
+
+<div class="page-header" style="background: url(/img/banner1.jpg);">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="breadcrumb-wrapper">
+<h2 class="product-title">Post your Ads</h2>
+<ol class="breadcrumb">
+<li><a href="#">Home /</a></li>
+<li class="current">Post you Ads</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="content" class="section-padding">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3 page-sidebar">
+
+{{> postLeftPanel}}
+
+</div>
+<div class="col-sm-12 col-md-8 col-lg-9">
+<div class="row page-content">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
+<div class="inner-box">
+<div class="dashboard-box">
+<h2 class="dashbord-title">Ad Detail</h2>
+</div>
+<form action="/postAds" method="POST" enctype="multipart/form-data" >
+<div class="dashboard-wrapper">
+<div class="form-group mb-3">
+<label class="control-label">Project Title</label>
+<input class="form-control input-md" name="title" placeholder="Title" type="text" required>
+</div>
+<div class="form-group mb-3 tg-inputwithicon">
+<label class="control-label">Categories</label>
+<div class="tg-select form-control">
+<select name="categories" required>
+<option value="none" name="categories" disabled>Select Categories</option>
+<option value="mobiles">Mobiles</option>
+<option value="hotel & travels">Hotel & Travels</option>
+<option value="foods">Foods</option>
+<option value="clothes & accessories">Clothes & Accessories</option>
+<option value="electronics">Electronics</option>
+<option value="training">Training</option>
+<option value="real Estate">Real Estate</option>
+<option value="services">Services</option>
+<option value="pets">Pets</option>
+<option value="vehicles">Vehicles</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="form-group mb-3">
+<label class="control-label">Price Title</label>
+<input class="form-control input-md" name="price" placeholder="Ad your Price" type="number" required>
+{{!-- <div class="tg-checkbox mt-3">
+<div class="custom-control custom-checkbox">
+<input type="checkbox" class="custom-control-input" id="tg-priceoncall">
+<label class="custom-control-label" for="tg-priceoncall">Price On Call</label>
+</div>
+</div> --}}
+</div>
+<div class="form-group md-3 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<section id="editor">
+<textarea name="description" id="" cols="50" rows="8" placeholder="Describe Your Product In Details in Not More Than 500 Letters" maxlength="500" minlength="10" required></textarea>
+</section>
+</div>
+<label class="tg-fileuploadlabel" for="tg-photogallery">
+<span>Drop files anywhere to upload</span>
+<span>After Selecting once, Proceed to filling other details<br> then submit</span>
+{{!-- <span>Or</span> --}}
+<span class="btn btn-common">Select Image File</span>
+<span>Maximum upload file size: 500 KB</span>
+<input id="tg-photogallery" class="tg-fileinput" type="file" name="image" required>
+</label>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+<div class="inner-box">
+<div class="tg-contactdetail">
+<div class="dashboard-box">
+<h2 class="dashbord-title">Contact Detail</h2>
+</div>
+<div class="dashboard-wrapper">
+<div class="form-group mb-3">
+<strong>I’m:</strong>
+<div class="tg-selectgroup">
+<span class="tg-radio">
+<input id="tg-sameuser" type="radio" name="usertype" value="same user" checked="">
+<label for="tg-sameuser">Same User</label>
+</span>
+<span class="tg-radio">
+<input id="tg-someoneelse" type="radio" name="usertype" value="someone else">
+<label for="tg-someoneelse">Someone Else</label>
+</span>
+</div>
+</div>
+<div class="form-group mb-3">
+<label class="control-label">First Name*</label>
+<input class="form-control input-md" name="name" type="text" required>
+</div>
+<div class="form-group mb-3">
+<label class="control-label">Last Name*</label>
+<input class="form-control input-md" name="lastName" type="text" required>
+</div>
+<div class="form-group mb-3">
+<label class="control-label">Phone</label>
+<input class="form-control input-md" name="phone" type="text" required>
+</div>
+<div class="form-group mb-3">
+<label class="control-label">Enter Address</label>
+<input class="form-control input-md" name="address" type="text" required>
+</div>
+{{!-- <div class="form-group mb-3">
+<label class="control-label">Enter Address</label>
+<input class="form-control input-md" name="address" type="text">
+</div> --}}
+<div class="form-group mb-3 tg-inputwithicon">
+<label class="control-label">Country</label>
+<div class="tg-select form-control">
+<select name="country" required>
+<option value="none" disabled> Select Country</option>
+<option value="Nigeria">Nigeria</option>
+<option value="Ghana">Ghana</option>
+<option value="USA">USA</option>
+<option value="Liberia">Liberia</option>
+<option value="Brazil">Brazil</option>
+<option value="Other">Other</option>
+</select>
+</div>
+</div>
+<div class="form-group mb-3 tg-inputwithicon">
+<label class="control-label">State</label>
+<div class="tg-select form-control">
+<select name="state" required>
+<option value="none" disabled>Select State</option>
+<option value="Lagos State">Lagos State</option>
+<option value="Oyo State">Oyo State</option>
+<option value="Other State">Other</option>
+</select>
+</div>
+</div>
+<div class="form-group mb-3 tg-inputwithicon">
+<label class="control-label">City</label>
+<div class="tg-select form-control">
+<select name="city" required> 
+<option value="none" disabled>Select City</option>
+<option value="lagos City">Lagos City</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="tg-checkbox">
+<div class="custom-control custom-checkbox">
+<input type="checkbox" class="custom-control-input" id="tg-agreetermsandrules" value="agreed" name="TCagree" required>
+<label class="custom-control-label" for="tg-agreetermsandrules">I agree to all <a href="javascript:void(0);">Terms of Use &amp; Posting Rules</a></label>
+</div>
+</div>
+<button class="btn btn-common" type="submit">Post Ad</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+
+{{> footer}}
+
+
+<a href="#" class="back-to-top">
+<i class="lni-chevron-up"></i>
+</a>
+
+<div id="preloader">
+<div class="loader" id="loader-1"></div>
+</div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/js/jquery-min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/color-switcher.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<script src="/js/waypoints.min.js"></script>
+<script src="/js/wow.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.slicknav.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/form-validator.min.js"></script>
+<script src="/js/contact-form-script.min.js"></script>
+<script src="/js/summernote.js"></script>
+<script>
+      $('#summernote').summernote({
+          height: 250, // set editor height
+          minHeight: null, // set minimum height of editor
+          maxHeight: null, // set maximum height of editor
+          focus: false // set focus to editable area after initializing summernote
+      });
+    </script>
+</body>
+
+</html>

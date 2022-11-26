@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>NexusPlus - Classified Ads and Listing Template</title>
+
+{{> cssLinks}}
+</head>
+<body>
+
+<header id="header-wrap">
+
+<div class="top-bar">
+<div class="container">
+<div class="row">
+<div class="col-lg-7 col-md-5 col-xs-12">
+
+<ul class="list-inline">
+<li><i class="lni-phone"></i> +0123 456 789</li>
+<li><i class="lni-envelope"></i> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c5f595c5c435e586c4b414d4540024f4341">[email&#160;protected]</a></li>
+</ul>
+
+</div>
+<div class="col-lg-5 col-md-7 col-xs-12">
+<div class="roof-social float-right">
+<a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
+<a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
+<a class="instagram" href="#"><i class="lni-instagram-filled"></i></a>
+<a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
+<a class="google" href="#"><i class="lni-google-plus"></i></a>
+</div>
+
+{{> nav}}
+
+{{> header}}
+</header>
+
+
+<div class="page-header" style="background: url(/img/banner1.jpg);">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="breadcrumb-wrapper">
+<h2 class="product-title">Profile Settings</h2>
+<ol class="breadcrumb">
+<li><a href="#">Home /</a></li>
+<li class="current">Profile Settings</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="content" class="section-padding">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3 page-sidebar">
+
+
+{{> postLeftPanel}}
+
+
+</div>
+
+<div class="col-sm-12 col-md-8 col-lg-9">
+<div class="row page-content">
+{{#if error}}
+<h2>{{error}}</h2>
+{{/if}}
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+<div class="inner-box">
+<div class="tg-contactdetail">
+<form action="/updateProfile" method="post" enctype="multipart/form-data">
+<div class="dashboard-box">
+<h2 class="dashbord-title">Change Login Details Here</h2>
+</div>
+<div class="dashboard-wrapper">
+
+<div class="form-group mb-3">
+<label class="control-label">Username*</label>
+<input class="form-control input-md" name="username" type="text">
+</div>
+<div class="form-group mb-3">
+<label class="control-label">Email*</label>
+<input class="form-control input-md" name="email" type="email">
+</div>
+<div class="form-group mb-3">
+<label class="control-label">Old Password*</label>
+<input class="form-control input-md" name="oldPassword" type="text">
+</div>
+<div class="form-group mb-3">
+<label class="control-label">New Password</label>
+<input class="form-control input-md" name="newPassword" type="text">
+</div>
+</div>
+<label class="tg-fileuploadlabel" for="tg-photogallery">
+<span>Drag Profile Picture anywhere here to upload</span>
+<span>Or</span>
+<span class="btn btn-common">Select File</span>
+<span>Maximum upload file size: 500 KB</span>
+<input id="tg-photogallery" class="tg-fileinput" type="file" name="image">
+</label>
+<button class="btn btn-common" type="submit">Confirm</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{{> footer}}
+
+
+<a href="#" class="back-to-top">
+<i class="lni-chevron-up"></i>
+</a>
+
+<div id="preloader">
+<div class="loader" id="loader-1"></div>
+</div>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/js/jquery-min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/color-switcher.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<script src="/js/waypoints.min.js"></script>
+<script src="/js/wow.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.slicknav.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/form-validator.min.js"></script>
+<script src="/js/contact-form-script.min.js"></script>
+<script src="/js/summernote.js"></script>
+</body>
+
+
+</html>
