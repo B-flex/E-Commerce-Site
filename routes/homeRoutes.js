@@ -57,7 +57,7 @@ routes.post('/postAds', setUser, postAdvertsToDatabase )
 routes.post('/search', setUser, postSearchBox)
 routes.post('/updateProfile', setUser, changeUserDetails)
 routes.post('/contact', setUser, postMessageToAdmin)
-routes.post('/makeProductEnquiry', makeProductEnquiry)
+routes.post('/makeProductEnquiry', setUser, makeProductEnquiry)
 
 
 routes.post('/wannaPurchase', sendMessage )

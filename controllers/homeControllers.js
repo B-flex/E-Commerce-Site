@@ -803,6 +803,8 @@ res.redirect('/')
 const makeProductEnquiry = async(req, res)=>{
     const name = req.body.name
     const phone = req.body.phone
+    const emaill = req.user.email
+    const usernamee = req.user.username
 
     const mailgunAuth = {
         auth: {
@@ -813,14 +815,15 @@ const makeProductEnquiry = async(req, res)=>{
 const transporter = await nodemailer.createTransport(nodemailerMailGun(mailgunAuth))
 const productId = req.params.id
 const find = await Post.find({_id: productId})
+const titlee = find.adTitle
 const ownerMainId = find.ownerId
 const userIdDetail = await User.find({_id: ownerMainId})
 const ownerMail = userIdDetail.email
 const data = {
-from: req.user.email ,
+from: emaill ,
 to: ownerMail,
 subject: `Purchase Of Your Product ID: ${productId}`,
-text: `Hello My Name is ${req.user.username}, I'm interested in this product ${find.adTitle} and I'd like to know more details, Call Me.`
+text: `Hello My Name is ${usernamee}, I'm interested in this product ${titlee} and I'd like to know more details, Call Me.`
 }
 
 transporter.sendMail(data, (err, body)=>{
