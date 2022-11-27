@@ -812,13 +812,15 @@ const makeProductEnquiry = async(req, res)=>{
     }
 const transporter = await nodemailer.createTransport(nodemailerMailGun(mailgunAuth))
 const productId = req.params.id
-const ownerMainId = productId.ownerId
-const ownerMail = ownerMainId.email
+const find = await Post.findOne({_id: productId})
+const ownerMainId = find.ownerId
+const userIdDetail = await User.findOne({_id: ownerMainId})
+const ownerMail = userIdDetail.email
 const data = {
 from: req.user.email ,
 to: ownerMail,
 subject: `Purchase Of Your Product ID: ${productId}`,
-text: `Hello My Name is ${req.user.username}, I'm interested in this product ${productId.adTitle} and I'd like to know more details, Call Me.`
+text: `Hello My Name is ${req.user.username}, I'm interested in this product ${find.adTitle} and I'd like to know more details, Call Me.`
 }
 
 transporter.sendMail(data, (err, body)=>{
