@@ -812,7 +812,7 @@ const makeProductEnquiry = async(req, res)=>{
     }
 const transporter = await nodemailer.createTransport(nodemailerMailGun(mailgunAuth))
 const productId = req.params.id
-const find = await Post.findOne({_id: productId})
+const find = await Post.find({_id: productId})
 const ownerMainId = find.ownerId
 const userIdDetail = await User.findOne({_id: ownerMainId})
 const ownerMail = userIdDetail.email
