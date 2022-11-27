@@ -1,6 +1,6 @@
 const express = require('express')
 const routes = express.Router()
-const{getHomePage, checkUserConfirmPassword,getWelcomePage,homeProducts,makeProductEnquiry,changeUserDetails, getOfferMessages,getPaymentsPage, postSearchBox,getaccountFavouriteAds,getAccountProfileSetting , getAccountMyAds,getDashboardPage, sendMessage,getAdListSection,getCategorySections,getAdgridSection, getadGridPage,logOut, checkUsername, authenticateLogin, getCategoriesPage, postAdvertsToDatabase, getUserDetails, getRegisterPage, getLoginPage,getadListPage,getadListDetailPage, getaboutPage,getServicesPage,getpostAdsPage,getPackagesPage,deleteDashboardPosts,gettestimonialPage,getfaqPage,get404Page,getBlogRightSidePage,getBlogLeftSidePage,getBlogGridFullWidthPage,getBlogDetailsPage,getContactPage,postMessageToAdmin} = require('../controllers/homeControllers')
+const{getHomePage, checkUserConfirmPassword,getWelcomePage,homeProducts,makeProductEnquiry,forgotPassword, changeUserDetails, getOfferMessages,getPaymentsPage, postSearchBox,getaccountFavouriteAds,getAccountProfileSetting , getAccountMyAds,getDashboardPage, sendMessage,getAdListSection,getCategorySections,getAdgridSection, getadGridPage,logOut, checkUsername, authenticateLogin, getCategoriesPage, postAdvertsToDatabase, getUserDetails, getRegisterPage, getLoginPage,getadListPage,getadListDetailPage, getaboutPage,getServicesPage,getpostAdsPage,getPackagesPage,deleteDashboardPosts,gettestimonialPage,getfaqPage,get404Page,getBlogRightSidePage,getBlogLeftSidePage,getBlogGridFullWidthPage,getBlogDetailsPage,getContactPage,postMessageToAdmin} = require('../controllers/homeControllers')
 // const  setUser = require('../middlewares/setUser')
 const User = require('../models/User-Registration Model')
 const Post = require('../models/postAdsModel')
@@ -48,6 +48,7 @@ routes.get('/logout', logOut)
 routes.get('/category/:category', setUser, getCategorySections)
 routes.get('/adListingList/:category', setUser, getAdListSection)
 routes.get('/adgrid/:category', setUser, getAdgridSection)
+routes.get('/forgotPassword', forgotPassword)
 
 
 routes.post('/register', checkUsername, checkUserConfirmPassword, getUserDetails)

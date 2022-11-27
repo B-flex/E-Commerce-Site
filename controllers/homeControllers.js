@@ -8,6 +8,7 @@ const nodemailer = require('nodemailer')
 const nodemailerMailGun = require('nodemailer-mailgun-transport')
 const nodePopup = require('node-popup/dist/cjs.js')
 const alert = require('alert')
+const { addAbortSignal } = require('nodemailer/lib/xoauth2')
 // const { message } = require('statuses')
 // const popup = require('popups/dist/popupS')
 // const alert = require('alert')
@@ -768,6 +769,36 @@ if(err){
 })
 res.redirect('/')
 }
+// const forgotMyPassword = async(req, res)=>{
+//     const email = req.body.email
+
+//     const user = await User.findOne({email: email})
+//     if(user){
+//     }else{
+//         res.render('forgot-password', {error: 'User email Not found Please Check again'})
+//     }
+//     const mailgunAuth = {
+//         auth: {
+//             api_key: process.env.MAILGUN_API_KEY,
+//             domain: process.env.MAILGUN_DOMAIN
+//         }
+//     }
+// const transporter = await nodemailer.createTransport(nodemailerMailGun(mailgunAuth))
+// const data = {
+// from: Nexus-plus-ads ,
+// to: email,
+// subject: 'your User password',
+// text: `Hello My Name is ${name} and this is my message: ${message}`
+// }
+
+// transporter.sendMail(data, (err, body)=>{
+// if(err){
+//     console.log(err)
+// }
+
+// })
+// res.redirect('/')
+// }
 
 const makeProductEnquiry = async(req, res)=>{
     const name = req.body.name
@@ -800,5 +831,9 @@ res.redirect('/')
 alert('Message Sent Successfully')
 }
 
+const forgotPassword = (req, res)=>{
+    res.render('forgot-password')
+}
 
-module.exports = { getHomePage,postMessageToAdmin,makeProductEnquiry, logOut,getAccountProfileSetting,changeUserDetails,deleteDashboardPosts,getaccountFavouriteAds,getWelcomePage, getAccountMyAds,getPaymentsPage, getOfferMessages, getAdListSection, getadListPage, getDashboardPage, getCategorySections,getAdgridSection, checkUsername, sendMessage, postAdvertsToDatabase, getadListDetailPage, getaboutPage, getServicesPage, getpostAdsPage, getPackagesPage, gettestimonialPage, getfaqPage, get404Page, getBlogRightSidePage, getBlogLeftSidePage, getBlogGridFullWidthPage, getBlogDetailsPage, getContactPage, getadGridPage,postSearchBox, authenticateLogin, getRegisterPage, getCategoriesPage, getLoginPage, getUserDetails, checkUserConfirmPassword }
+
+module.exports = { getHomePage,forgotPassword, postMessageToAdmin,makeProductEnquiry, logOut,getAccountProfileSetting,changeUserDetails,deleteDashboardPosts,getaccountFavouriteAds,getWelcomePage, getAccountMyAds,getPaymentsPage, getOfferMessages, getAdListSection, getadListPage, getDashboardPage, getCategorySections,getAdgridSection, checkUsername, sendMessage, postAdvertsToDatabase, getadListDetailPage, getaboutPage, getServicesPage, getpostAdsPage, getPackagesPage, gettestimonialPage, getfaqPage, get404Page, getBlogRightSidePage, getBlogLeftSidePage, getBlogGridFullWidthPage, getBlogDetailsPage, getContactPage, getadGridPage,postSearchBox, authenticateLogin, getRegisterPage, getCategoriesPage, getLoginPage, getUserDetails, checkUserConfirmPassword }

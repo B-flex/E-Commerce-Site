@@ -55,6 +55,9 @@
         padding-top: 3px;
         animation: ease-in .2s;
     }
+    form i{
+        cursor: pointer;
+    }
 </style>
 
 <div class="page-header" style="background: url(/img/banner1.jpg);">
@@ -98,8 +101,9 @@
 </div>
 <div class="form-group">
 <div class="input-icon">
-<i class="lni-lock"></i>
-<input type="password" class="form-control" placeholder="Password" name="password">
+{{!-- <i class="lni-lock"></i> --}}
+<input type="password" class="form-control" placeholder="Password" name="password" id="password">
+<i class="bi bi-eye-slash" id="togglePassword"><input type="radio"></i>
 </div>
 </div>
 <div class="form-group mb-3">
@@ -130,7 +134,19 @@
 <div id="preloader">
 <div class="loader" id="loader-1"></div>
 </div>
+<script>
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
 
+
+    togglePassword.addEventListener("click", function(){
+
+        const type = password.getAttribute("type") === "password" ? "text": "password";
+        password.setAttribute("type", type);
+
+        this.classList.toggle("bi-eye");
+    });
+</script>
 
 <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/js/jquery-min.js"></script>
 <script src="/js/popper.min.js"></script>
