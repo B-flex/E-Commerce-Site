@@ -13,6 +13,10 @@ const alert = require('alert')
 // const alert = require('alert')
 require('dotenv').config()
 
+const getWelcomePage=(req, res)=>{
+    res.render('index-2')
+}
+
 const getHomePage = async (req, res) => {
     const username = req.user.username
     const dataBase = await Post.find().sort({ date: -1 }).limit(6)
@@ -765,5 +769,36 @@ if(err){
 res.redirect('/')
 }
 
+const makeProductEnquiry = async(req, res)=>{
+    const name = req.body.name
+    const phone = req.body.phone
 
-module.exports = { getHomePage,postMessageToAdmin, logOut,getAccountProfileSetting,changeUserDetails,deleteDashboardPosts,getaccountFavouriteAds, getAccountMyAds,getPaymentsPage, getOfferMessages, getAdListSection, getadListPage, getDashboardPage, getCategorySections,getAdgridSection, checkUsername, sendMessage, postAdvertsToDatabase, getadListDetailPage, getaboutPage, getServicesPage, getpostAdsPage, getPackagesPage, gettestimonialPage, getfaqPage, get404Page, getBlogRightSidePage, getBlogLeftSidePage, getBlogGridFullWidthPage, getBlogDetailsPage, getContactPage, getadGridPage,postSearchBox, authenticateLogin, getRegisterPage, getCategoriesPage, getLoginPage, getUserDetails, checkUserConfirmPassword }
+    const mailgunAuth = {
+        auth: {
+            api_key: process.env.MAILGUN_API_KEY,
+            domain: process.env.MAILGUN_DOMAIN
+        }
+    }
+const transporter = await nodemailer.createTransport(nodemailerMailGun(mailgunAuth))
+const productId = req.params.id
+const ownerMainId = productId.ownerId
+const ownerMail = ownerMainId.email
+const data = {
+from: req.user.email ,
+to: ownerMail,
+subject: `Purchase Of Your Product ID: ${productId}`,
+text: `Hello My Name is ${req.user.username}, I'm interested in this product ${productId.adTitle} and I'd like to know more details, Call Me.`
+}
+
+transporter.sendMail(data, (err, body)=>{
+if(err){
+    console.log(err)
+}
+
+})
+res.redirect('/')
+alert('Message Sent Successfully')
+}
+
+
+module.exports = { getHomePage,postMessageToAdmin,makeProductEnquiry, logOut,getAccountProfileSetting,changeUserDetails,deleteDashboardPosts,getaccountFavouriteAds,getWelcomePage, getAccountMyAds,getPaymentsPage, getOfferMessages, getAdListSection, getadListPage, getDashboardPage, getCategorySections,getAdgridSection, checkUsername, sendMessage, postAdvertsToDatabase, getadListDetailPage, getaboutPage, getServicesPage, getpostAdsPage, getPackagesPage, gettestimonialPage, getfaqPage, get404Page, getBlogRightSidePage, getBlogLeftSidePage, getBlogGridFullWidthPage, getBlogDetailsPage, getContactPage, getadGridPage,postSearchBox, authenticateLogin, getRegisterPage, getCategoriesPage, getLoginPage, getUserDetails, checkUserConfirmPassword }

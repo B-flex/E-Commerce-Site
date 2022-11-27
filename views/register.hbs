@@ -6,7 +6,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>NexusPlus - Classified Ads and Listing Template</title>
+<title>NexusPlus - Classified Ads and Listing</title>
 
 {{> cssLinks}} 
 </head>
@@ -40,7 +40,17 @@
 {{> header}}
 
 </header>
-
+<style>
+    .current{
+        color: rgb(255, 0, 106);
+        font-weight: 800;
+    }
+    .current:hover{
+        color: white;
+        padding-top: 3px;
+        animation: ease-in .2s;
+    }
+</style>
 
 <div class="page-header" style="background: url(/img/banner1.jpg);">
 <div class="container">
@@ -50,8 +60,7 @@
 <h2 class="product-title">Join Us</h2>
 <ol class="breadcrumb">
 <li><a href="/">Home /</a></li>
-<li><a href="/login"> Login If You Have An Account /</a></li>
-<li class="current">Register</li>
+<a href="/login"><li class="current"> Login Here If You Have An Account</li></a>
 </ol>
 </div>
 </div>

@@ -1,6 +1,6 @@
 const express = require('express')
 const routes = express.Router()
-const{getHomePage, checkUserConfirmPassword,homeProducts,changeUserDetails, getOfferMessages,getPaymentsPage, postSearchBox,getaccountFavouriteAds,getAccountProfileSetting , getAccountMyAds,getDashboardPage, sendMessage,getAdListSection,getCategorySections,getAdgridSection, getadGridPage,logOut, checkUsername, authenticateLogin, getCategoriesPage, postAdvertsToDatabase, getUserDetails, getRegisterPage, getLoginPage,getadListPage,getadListDetailPage, getaboutPage,getServicesPage,getpostAdsPage,getPackagesPage,deleteDashboardPosts,gettestimonialPage,getfaqPage,get404Page,getBlogRightSidePage,getBlogLeftSidePage,getBlogGridFullWidthPage,getBlogDetailsPage,getContactPage,postMessageToAdmin} = require('../controllers/homeControllers')
+const{getHomePage, checkUserConfirmPassword,getWelcomePage,homeProducts,makeProductEnquiry,changeUserDetails, getOfferMessages,getPaymentsPage, postSearchBox,getaccountFavouriteAds,getAccountProfileSetting , getAccountMyAds,getDashboardPage, sendMessage,getAdListSection,getCategorySections,getAdgridSection, getadGridPage,logOut, checkUsername, authenticateLogin, getCategoriesPage, postAdvertsToDatabase, getUserDetails, getRegisterPage, getLoginPage,getadListPage,getadListDetailPage, getaboutPage,getServicesPage,getpostAdsPage,getPackagesPage,deleteDashboardPosts,gettestimonialPage,getfaqPage,get404Page,getBlogRightSidePage,getBlogLeftSidePage,getBlogGridFullWidthPage,getBlogDetailsPage,getContactPage,postMessageToAdmin} = require('../controllers/homeControllers')
 // const  setUser = require('../middlewares/setUser')
 const User = require('../models/User-Registration Model')
 const Post = require('../models/postAdsModel')
@@ -8,6 +8,7 @@ const setUser = require('../middlewares/setUser')
 
 
 routes.get('/', setUser, getHomePage)
+routes.get('/welcome', getWelcomePage)
 routes.get('/register', getRegisterPage)
 routes.get('/login', getLoginPage)
 routes.get('/category', setUser, getCategoriesPage)
@@ -55,6 +56,7 @@ routes.post('/postAds', setUser, postAdvertsToDatabase )
 routes.post('/search', setUser, postSearchBox)
 routes.post('/updateProfile', setUser, changeUserDetails)
 routes.post('/contact', setUser, postMessageToAdmin)
+routes.post('/makeProductEnquiry', makeProductEnquiry)
 
 
 routes.post('/wannaPurchase', sendMessage )

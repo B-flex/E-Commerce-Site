@@ -6,7 +6,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>NexusPlus - Classified Ads and Listing Template</title>
+<title>NexusPlus - Classified Ads and Listing</title>
 
 {{> cssLinks}}
 </head>
@@ -53,9 +53,9 @@
 <span class="lni-menu"></span>
 <span class="lni-menu"></span>
 </button>
-<a href="index-2.html" class="navbar-brand"><img src="/img/logo.png" alt=""></a>
+<a href="#" class="navbar-brand"><img src="/img/logo.png" alt=""></a>
 </div>
-<div class="collapse navbar-collapse" id="main-navbar">
+{{!-- <div class="collapse navbar-collapse" id="main-navbar">
 <ul class="navbar-nav mr-auto w-100 justify-content-center">
 <li class="nav-item dropdown active">
 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -169,20 +169,46 @@ Listings
 </li>
 </ul>
 
-</nav>
-
+</nav> --}}
+<style>
+    .login{
+        font-weight: 900;
+        display: flex;
+         float:left;
+          color: rgb(243, 1, 102);
+    }
+    .register{
+        font-weight: 900;
+        display:flex; 
+        float:right; 
+        color:red
+    }
+    span a:hover{
+     color: white;
+    }
+    a:hover{
+     color: white;
+    }
+</style>
 
 <div id="hero-area">
 <div class="overlay"></div>
+
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-md-12 col-lg-9 col-xs-12 text-center">
 <div class="contents">
 <h1 class="head-title">Welcome to The Largest <span class="year">Marketplace</span></h1>
-<p>Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p>
-<div class="search-bar">
-<div class="search-inner">
-<form class="search-form">
+<p>You can buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p><br><br>
+
+<h3 style="color: white;"><a href="/login"> JOIN US NOW</a></h3><br>
+<span><a href="/login" class="login">Click Here To Login </a></span>
+<span><a href="/register" class="register">Click To Create Account</a></span>
+
+
+{{!-- <div class="search-bar">
+<div class="search-inner"> --}}
+{{!-- <form class="search-form">
 <div class="form-group">
 <input type="text" name="customword" class="form-control" placeholder="What are you looking for?">
 </div>
@@ -218,18 +244,18 @@ Listings
 <i class="lni-menu"></i>
 </div>
 <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
-</form>
+</form> --}}
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
+{{!-- </div>
+</div> --}}
 
 </header>
 
-
+{{!-- 
 <section id="categories">
 <div class="container">
 <div class="row justify-content-center">
@@ -825,9 +851,9 @@ Listings
 </div>
 </div>
 </div>
-</section>
+</section> --}}
 
-
+{{!-- 
 <section class="works section-padding">
 <div class="container">
 <div class="row">
@@ -1219,9 +1245,9 @@ Reprehenderit nemo quod tempore doloribus ratione distinctio quis quidem vitae s
 </div>
 </div>
 </div>
-</section>
+</section> --}}
 
-
+{{!-- 
 <footer>
 
 <section class="footer-Content">
@@ -1291,7 +1317,7 @@ Reprehenderit nemo quod tempore doloribus ratione distinctio quis quidem vitae s
 </div>
 </div>
 
-</footer>
+</footer> --}}
 
 
 <a href="#" class="back-to-top">
