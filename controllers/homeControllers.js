@@ -814,7 +814,7 @@ const transporter = await nodemailer.createTransport(nodemailerMailGun(mailgunAu
 const productId = req.params.id
 const find = await Post.find({_id: productId})
 const ownerMainId = find.ownerId
-const userIdDetail = await User.findOne({_id: ownerMainId})
+const userIdDetail = await User.find({_id: ownerMainId})
 const ownerMail = userIdDetail.email
 const data = {
 from: req.user.email ,
