@@ -6,10 +6,8 @@ const User = require('../models/User-Registration Model')
 const setUser = async(req, res, next)=>{
 
     const auth = req.cookies.Auth
-    
-    const secretKey = 'scatteringUserTokens'
     if(auth){
-        const decoded = jwt.verify(auth, 'scatteringUserTokens')  
+        const decoded = jwt.verify(auth, 'scatteringTokens')  
            const userId = decoded.foundUserId
     currentUser = await User.findById(userId)
     req.user = currentUser
