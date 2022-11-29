@@ -204,17 +204,17 @@ const getadListDetailPage = async(req, res) => {
     const body = productData.description
     const category = productData.categories
     const phone = productData.phoneNumber
-
+     console.log(productData)
     //MORE ADS FROM OWNER PAGE
     const ownerId = productData.ownerId
     const ownerData = await User.findOne({_id: ownerId})
     const ownerImg = ownerData.image
     const ownerDb = await Post.find({ownerId: ownerId}).limit(5).sort({date: -1})
     
-    // console.log( ownerDb)
+    console.log( ownerData)
     // const body = productData.description
     // console.log(productData)
-    res.render('ads-details', { currentUser, ownerImg, username, product, productImage, category, phone, firstName, lastName,  price, title, date, country, body, ownerDb })
+    res.render('ads-details', { currentUser,ownerImg, username, product, productImage, category, phone, firstName, lastName,  price, title, date, country, body, ownerDb })
 }
 
 const getaboutPage = async (req, res) => {
@@ -230,12 +230,19 @@ const getServicesPage = async (req, res) => {
     res.render('services', { currentUser, username,totalAds, totalMembers })
 }
 
-const getpostAdsPage = async (req, res) => {
+const getpostAdsPage = async (req, res, next) => {
     const username = req.user.username
     const role = req.user.role
     const profile = req.user.image
+    let isAdmin = role
+    if(role === "admin"){
+       isAdmin = true 
+    }else{
+        isAdmin = false
+    }
+    
     // console.log(user)
-    res.render('post-ads', { username, role, profile})
+    res.render('post-ads', { username, role, profile, isAdmin})
 }
 
 const getPackagesPage = async (req, res) => {
@@ -295,7 +302,9 @@ const getOfferMessages= async(req, res)=>{
     const username = req.user.username
     const profile = req.user.image
     const role = req.user.role
-    res.render('offermessages', {username, currentUser, profile, role})
+    const product = req.params.id
+    const productData = await Post.find({_id: product}).limit(1)
+    res.render('offermessages', {username, currentUser, profile, role,  productData })
 }
 const getPaymentsPage = async(req, res)=>{
     const username = req.user.username
@@ -363,7 +372,7 @@ const authenticateLogin = async (req, res, next) => {
             const checkBox = req.body.checkBox
             if (checkBox) {
                 
-                const token = jwt.sign({ foundUserId }, 'scatteringUserToken', { expiresIn: 100000 })
+                const token = jwt.sign({ foundUserId }, 'scatteringUserToken',  {})
                
 
                 res.cookie('Auth', token, { maxAge: 34560004000 })
@@ -371,7 +380,7 @@ const authenticateLogin = async (req, res, next) => {
              res.redirect('/' )
             } else {
                 
-                const token = jwt.sign({ foundUserId }, 'scatteringUserToken', { expiresIn: 100000 })
+                const token = jwt.sign({ foundUserId }, 'scatteringUserToken',  {})
                 // console.log(currentUser)
                 
 
@@ -424,11 +433,6 @@ const logOut = async (req, res) => {
 
     res.redirect('/login')
 }
-
-// const searchBox2 = (req, res)=>{
-
-//     res.redirect('/search')
-// }
 
 
 const postSearchBox = async(req, res)=>{
@@ -741,6 +745,41 @@ const changeUserDetails = async(req, res)=>{
     
 }
 
+const getProfilePicture = async(req, res)=>{
+    const currentUser = req.user
+    const username = req.user.username
+    const profile = req.user.image
+res.render('changeProfilePicture', {currentUser, username, profile})
+}
+const updateProfilePicture = async(req, res)=>{
+    const username = req.user.username
+    const userId = req.user._id
+    const profilePicture = req.files.image
+    const uploadPicture = profilePicture.name
+    const movePicture = `./public/uploadedImages/${uploadPicture}`
+    profilePicture.mv(movePicture)
+
+    const currentUser= req.user
+
+    
+    // const changePassword = await User.findOneAndUpdate({password: oldPassword, update: bcrypt.hash(newPassword, 12)})
+    if(profilePicture){ 
+        const gettingUserCredentials = await User.findByIdAndUpdate(userId,{
+            $set :{
+                image: `/uploadedImages/${uploadPicture}`
+            }
+        })
+       
+       
+    
+    res.redirect('/dashboard')
+    }else{
+        res.render('changeProfilePicture', {error: 'Please Select Image File', currentUser, username})
+    }
+    
+    
+}
+
 const postMessageToAdmin = async(req, res)=>{
     const name = req.body.name
     const email = req.body.email
@@ -801,39 +840,42 @@ res.redirect('/')
 // }
 
 const makeProductEnquiry = async(req, res)=>{
-    const name = req.body.name
-    const phone = req.body.phone
-    const emaill = req.user.email
-    const usernamee = req.user.username
+//     const name = req.body.name
+//     const phone = req.body.phone
+//     const emaill = req.user.email
+//     const usernamee = req.user.username
+// const productId = {product}
+// // const find = await Post.findOne({_id: productId})
+// console.log(productId)
+//     const mailgunAuth = {
+//         auth: {
+//             api_key: process.env.MAILGUN_API_KEY,
+//             domain: process.env.MAILGUN_DOMAIN
+//         }
+    // }
+// const transporter = await nodemailer.createTransport(nodemailerMailGun(mailgunAuth))
 
-    const mailgunAuth = {
-        auth: {
-            api_key: process.env.MAILGUN_API_KEY,
-            domain: process.env.MAILGUN_DOMAIN
-        }
-    }
-const transporter = await nodemailer.createTransport(nodemailerMailGun(mailgunAuth))
-const productId = req.params.id
-const find = await Post.find({_id: productId})
-const titlee = find.adTitle
-const ownerMainId = find.ownerId
-const userIdDetail = await User.find({_id: ownerMainId})
-const ownerMail = userIdDetail.email
-const data = {
-from: emaill ,
-to: ownerMail,
-subject: `Purchase Of Your Product ID: ${productId}`,
-text: `Hello My Name is ${usernamee}, I'm interested in this product ${titlee} and I'd like to know more details, Call Me.`
-}
 
-transporter.sendMail(data, (err, body)=>{
-if(err){
-    console.log(err)
-}
+// const titlee = find.adTitle
+// const ownerMainId = find.ownerId
+// const userIdDetail = await User.findOne({_id: ownerMainId})
+// const ownerMail = userIdDetail.email
+// console.log(find)
+// const data = {
+// from: emaill ,
+// to: ownerMail,
+// subject: `Purchase Of Your Product ID: ${productId}`,
+// text: `Hello My Name is ${usernamee}, I'm interested in this product ${titlee} and I'd like to know more details, Call Me.`
+// }
 
-})
-res.redirect('/')
-alert('Message Sent Successfully')
+// transporter.sendMail(data, (err, body)=>{
+// if(err){
+//     console.log(err)
+// }
+
+// })
+// res.redirect('/')
+// alert('Message Sent Successfully')
 }
 
 const forgotPassword = (req, res)=>{
@@ -841,4 +883,4 @@ const forgotPassword = (req, res)=>{
 }
 
 
-module.exports = { getHomePage,forgotPassword, postMessageToAdmin,makeProductEnquiry, logOut,getAccountProfileSetting,changeUserDetails,deleteDashboardPosts,getaccountFavouriteAds,getWelcomePage, getAccountMyAds,getPaymentsPage, getOfferMessages, getAdListSection, getadListPage, getDashboardPage, getCategorySections,getAdgridSection, checkUsername, sendMessage, postAdvertsToDatabase, getadListDetailPage, getaboutPage, getServicesPage, getpostAdsPage, getPackagesPage, gettestimonialPage, getfaqPage, get404Page, getBlogRightSidePage, getBlogLeftSidePage, getBlogGridFullWidthPage, getBlogDetailsPage, getContactPage, getadGridPage,postSearchBox, authenticateLogin, getRegisterPage, getCategoriesPage, getLoginPage, getUserDetails, checkUserConfirmPassword }
+module.exports = { getHomePage,forgotPassword, postMessageToAdmin,makeProductEnquiry, getProfilePicture, updateProfilePicture, logOut,getAccountProfileSetting,changeUserDetails,deleteDashboardPosts,getaccountFavouriteAds,getWelcomePage, getAccountMyAds,getPaymentsPage, getOfferMessages, getAdListSection, getadListPage, getDashboardPage, getCategorySections,getAdgridSection, checkUsername, sendMessage, postAdvertsToDatabase, getadListDetailPage, getaboutPage, getServicesPage, getpostAdsPage, getPackagesPage, gettestimonialPage, getfaqPage, get404Page, getBlogRightSidePage, getBlogLeftSidePage, getBlogGridFullWidthPage, getBlogDetailsPage, getContactPage, getadGridPage,postSearchBox, authenticateLogin, getRegisterPage, getCategoriesPage, getLoginPage, getUserDetails, checkUserConfirmPassword }

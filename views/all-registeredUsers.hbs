@@ -49,7 +49,7 @@
 <h2 class="product-title">My Ads</h2>
 <ol class="breadcrumb">
 <li><a href="/">Home /</a></li>
-<li class="current">All Ads</li>
+<li class="current">All Users</li>
 </ol>
 </div>
 </div>
@@ -72,12 +72,12 @@
 <div class="page-content">
 <div class="inner-box">
 <div class="dashboard-box">
-<h2 class="dashbord-title">All Ads</h2>
+<h2 class="dashbord-title">All Users</h2>
 </div>
 <div class="dashboard-wrapper">
 <nav class="nav-table">
 <ul>
-<li class="active"><a href="#">All Ads ({{postss}})</a></li>
+<li class="active"><a href="#">All Users ({{userss}})</a></li>
 {{!-- <li><a href="#">Published (88)</a></li>
 <li><a href="#">Featured (12)</a></li>
 <li><a href="#">Sold (02)</a></li>
@@ -89,31 +89,31 @@
 <thead>
 <tr>
 <th>Photo</th>
-<th>Title</th>
-<th>Category</th>
-<th>Ad Status</th>
-<th>Price</th>
+<th>Username</th>
+<th>E-mail</th>
+<th>User Status</th>
+<th>Role</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
-    {{#each posts}}
+    {{#each users}}
 <tr data-category="active">
 
 <td class="photo"><img class="img-fluid" src="{{image}}" alt=""></td>
 <td data-title="Title">
-<h3>{{adTitle}}</h3>
+<h3>{{username}}</h3>
 <span>Ad ID: {{_id}}</span>
 </td>
-<td data-title="Category"><span class="adcategories">{{categories}}</span></td>
+<td data-title="Category"><span class="adcategories">{{email}}</span></td>
 <td data-title="Ad Status"><span class="adstatus adstatusactive">active</span></td>
 <td data-title="Price">
-<h3>N{{price}}<h3>
+<h3>{{role}}<h3>
 </td>
 
 <td data-title="Action">
  <div class="btns-actions">
-<a class="btn-action btn-delete" href="/admin/deleteUserPost/{{_id}}" style="width: 150px;"><i class="lni-trash"></i>Delete Post</a>
+<a class="btn-action btn-delete" href="/admin/deleteUser/{{_id}}" style="width: 150px;"><i class="lni-trash"></i>Delete Post</a>
 </div>
 </td>
 </tr>

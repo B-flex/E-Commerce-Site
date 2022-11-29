@@ -23,6 +23,7 @@
 <span>Profile Settings</span>
 </a>
 </li>
+
 {{!-- <li>
 <a href="/account-myads">
 <i class="lni-layers"></i>
@@ -35,18 +36,27 @@
 <span>Offers/Messages</span>
 </a>
 </li> --}}
-{{!-- <li>
-<a href="/payments">
+<li>
+<a href="/ProfilePicture">
 <i class="lni-wallet"></i>
-<span>Payments</span>
+<span>Add Profile Picture</span>
 </a>
-</li> --}}
-{{!-- <li>
-<a href="/account-favourite-ads">
+</li>
+
+{{#if isAdmin}}
+<li>
+<a href="/admin/all-users-post">
 <i class="lni-heart"></i>
-<span>My Favourites</span>
+<span>All Users Posts</span>
 </a>
-</li> --}}
+</li>
+<li>
+<a href="/admin/all-registeredUsers">
+<i class="lni-heart"></i>
+<span>All Registered Users</span>
+</a>
+</li>
+{{/if}}
 {{!-- <li>
 <a href="/account-profile-setting">
 <i class="lni-star"></i>

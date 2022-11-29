@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>NexusPlus - Classified Ads and Listing </title>
+<title>NexusPlus - Classified Ads and Listing Template</title>
 
 {{> cssLinks}}
 </head>
@@ -20,7 +20,7 @@
 
 <ul class="list-inline">
 <li><i class="lni-phone"></i> +0123 456 789</li>
-<li><i class="lni-envelope"></i> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aedddbdedec1dcdaeec9c3cfc7c280cdc1c3">[email&#160;protected]</a></li>
+<li><i class="lni-envelope"></i> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c5f595c5c435e586c4b414d4540024f4341">[email&#160;protected]</a></li>
 </ul>
 
 </div>
@@ -35,9 +35,7 @@
 
 {{> nav}}
 
-
 {{> header}}
-
 </header>
 
 
@@ -46,10 +44,10 @@
 <div class="row">
 <div class="col-md-12">
 <div class="breadcrumb-wrapper">
-<h2 class="product-title">My Ads</h2>
+<h2 class="product-title">Profile Settings</h2>
 <ol class="breadcrumb">
 <li><a href="/">Home /</a></li>
-<li class="current">All Ads</li>
+<li class="current">Profile Settings</li>
 </ol>
 </div>
 </div>
@@ -68,58 +66,32 @@
 
 
 </div>
- <div class="col-sm-12 col-md-8 col-lg-9">
-<div class="page-content">
+
+<div class="col-sm-12 col-md-8 col-lg-9">
+<div class="row page-content">
+{{#if error}}
+<h2>{{error}}</h2>
+{{/if}}
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
 <div class="inner-box">
+<div class="tg-contactdetail">
+<form action="/updatePicture" method="post" enctype="multipart/form-data">
 <div class="dashboard-box">
-<h2 class="dashbord-title">All Ads</h2>
+<h2 class="dashbord-title">Add Profile Picture Here</h2>
 </div>
 <div class="dashboard-wrapper">
-<nav class="nav-table">
-<ul>
-<li class="active"><a href="#">All Ads ({{postss}})</a></li>
-{{!-- <li><a href="#">Published (88)</a></li>
-<li><a href="#">Featured (12)</a></li>
-<li><a href="#">Sold (02)</a></li>
-<li><a href="#">Active (42)</a></li>
-<li><a href="#">Expired (01)</a></li> --}}
-</ul>
-</nav>
-<table class="table table-responsive dashboardtable tablemyads">
-<thead>
-<tr>
-<th>Photo</th>
-<th>Title</th>
-<th>Category</th>
-<th>Ad Status</th>
-<th>Price</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-    {{#each posts}}
-<tr data-category="active">
 
-<td class="photo"><img class="img-fluid" src="{{image}}" alt=""></td>
-<td data-title="Title">
-<h3>{{adTitle}}</h3>
-<span>Ad ID: {{_id}}</span>
-</td>
-<td data-title="Category"><span class="adcategories">{{categories}}</span></td>
-<td data-title="Ad Status"><span class="adstatus adstatusactive">active</span></td>
-<td data-title="Price">
-<h3>N{{price}}<h3>
-</td>
-
-<td data-title="Action">
- <div class="btns-actions">
-<a class="btn-action btn-delete" href="/admin/deleteUserPost/{{_id}}" style="width: 150px;"><i class="lni-trash"></i>Delete Post</a>
+<label class="tg-fileuploadlabel" for="tg-photogallery">
+<span>Drag Profile Picture anywhere here to upload</span>
+<span>Or</span>
+<span class="btn btn-common">Select File</span>
+<span>Maximum upload file size: 500 KB</span>
+<input id="tg-photogallery" class="tg-fileinput" type="file" name="image" required>
+</label>
+<button class="btn btn-common" type="submit">Confirm</button>
 </div>
-</td>
-</tr>
-{{/each}}
-</tbody>
-</table>
+</form>
+</div>
 </div>
 </div>
 </div>
@@ -155,5 +127,6 @@
 <script src="/js/contact-form-script.min.js"></script>
 <script src="/js/summernote.js"></script>
 </body>
+
 
 </html>

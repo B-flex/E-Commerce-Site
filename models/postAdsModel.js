@@ -12,7 +12,7 @@ const monthNames = ["January", "Febuary", "March", "April", "May", "June", "July
 var dateString =  d + ', ' + monthNames[m] + ' ' + y + ' '+ h +':'+ mi
 const postAdvertSchema = new mongoose.Schema({
 ownerId:{
-    type: String
+    type: String,
 },
 adTitle: {
     type: String

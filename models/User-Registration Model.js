@@ -16,6 +16,7 @@ const userRegistrationModel = new mongoose.Schema ({
  },
  image:{
      type: String,
+     default: "/uploadedImages/culbert.jpg"
  },
  role: {
     type: String,
