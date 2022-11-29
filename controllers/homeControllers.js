@@ -372,7 +372,7 @@ const authenticateLogin = async (req, res, next) => {
             const checkBox = req.body.checkBox
             if (checkBox) {
                 
-                const token = jwt.sign({ foundUserId }, 'scatteringTokens', { expiresIn: '5184000000' })
+                const token = jwt.sign({ foundUserId }, 'scatteringUserToken', { expiresIn: '5184000000' })
                
 
                 res.cookie('Auth', token, { maxAge: 34560004000 })
@@ -380,7 +380,7 @@ const authenticateLogin = async (req, res, next) => {
              res.redirect('/' )
             } else {
                 
-                const token = jwt.sign({ foundUserId }, 'scatteringTokens', { expiresIn: '5184000000' })
+                const token = jwt.sign({ foundUserId }, 'scatteringUserToken', { expiresIn: '5184000000' })
                 // console.log(currentUser)
                 
 
