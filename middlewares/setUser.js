@@ -7,9 +7,9 @@ const setUser = async(req, res, next)=>{
 
     const auth = req.cookies.Auth
     
-    const secretKey = 'scatteringUserToken'
+    const secretKey = 'scatteringUserTokens'
     if(auth){
-        const decoded = jwt.verify(auth, 'scatteringUserToken')  
+        const decoded = jwt.verify(auth, 'scatteringUserTokens')  
            const userId = decoded.foundUserId
     currentUser = await User.findById(userId)
     req.user = currentUser
