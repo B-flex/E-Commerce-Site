@@ -375,7 +375,7 @@ const authenticateLogin = async (req, res, next) => {
                 const token = jwt.sign({ foundUserId }, 'scatteringUserToken', { expiresIn: '34560004000' })
                
 
-                res.cookie('auth', token, { maxAge: 34560004000 })
+                res.cookie('authen', token, { maxAge: 34560004000 })
                 // console.log(token)
              res.redirect('/' )
             } else {
@@ -384,7 +384,7 @@ const authenticateLogin = async (req, res, next) => {
                 // console.log(currentUser)
                 
 
-                res.cookie('auth', token, {maxAge: 86400000})
+                res.cookie('authen', token, {maxAge: 86400000})
                 res.redirect('/' )
             }
 

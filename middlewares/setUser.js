@@ -5,7 +5,7 @@ const User = require('../models/User-Registration Model')
 
 const setUser = async(req, res, next)=>{
 
-    const auth = req.cookies.auth
+    const auth = req.cookies.authen
     
     const secretKey = 'scatteringUserToken'
     if(auth){
