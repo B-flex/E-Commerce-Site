@@ -6,7 +6,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>NexusPlus - Classified Ads and Listing Template</title>
+<title>NexusPlus - Classified Ads and Listing</title>
 
 {{> cssLinks}}
 </head>
@@ -190,14 +190,14 @@ Other <span class="category-counter">({{other}})</span>
 <span class="bg-green"><i class="lni-heart"></i></span>
 <span><i class="lni-bookmark"></i></span>
 </div>
-<a href="#"><img class="img-fluid" src="{{image}}" alt="" style="width: 420px; height:290px;"></a>
+<a href="/ads-details/{{_id}}"><img class="img-fluid" src="{{image}}" alt="" style="width: 420px; height:290px;"></a>
 </figure>
 <div class="feature-content">
 <div class="product">
 <a href="#">{{categories}} > </a>
 <a href="#">{{adTitle}}</a>
 </div>
-<h4><a href="ads-details.html">{{adTitle}} ...</a></h4>
+<h4><a href="/ads-details/{{_id}}">{{adTitle}} ...</a></h4>
 <div class="meta-tag">
 <span>
 <a href="#"><i class="lni-user"></i> {{firstName}} {{lastName}}</a>

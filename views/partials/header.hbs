@@ -69,6 +69,7 @@ Contact
 {{> loggedNav}}
 
 <ul class="mobile-menu">
+    {{> nav}}
 <li>
 <a class="active" href="/">
 Home
@@ -92,15 +93,15 @@ Listings
 <ul class="dropdown">
 <li><a href="/about">About Us</a></li>
 <li><a href="/services">Services</a></li>
-<li><a href="/ads-details">Ads Details</a></li>
-<li><a href="/post-ads">Ads Post</a></li>
-<li><a href="/pricing">Packages</a></li>
+{{!-- <li><a href="/ads-details">Ads Details</a></li> --}}
+<li><a href="/post-ads">Post an AD</a></li>
+{{!-- <li><a href="/pricing">Packages</a></li> --}}
 <li><a href="/testimonial">Testimonial</a></li>
 <li><a href="/faq">FAQ</a></li>
-<li><a href="/404">404</a></li>
+{{!-- <li><a href="/404">404</a></li> --}}
 </ul>
 </li>
-<li>
+{{!-- <li>
 <a href="#">Blog</a>
 <ul class="dropdown">
 <li><a href="/blog">Blog - Right Sidebar</a></li>
@@ -109,9 +110,11 @@ Listings
 <li><a href="/single-post">Blog Details</a></li>
 </ul>
 </li>
-<li>
+<li> --}}
 <a href="/contact">Contact Us</a>
 </li>
+{{> loggedNav}}
 </ul>
+
 
 </nav>
